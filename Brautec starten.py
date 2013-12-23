@@ -65,7 +65,10 @@ if os.path.isfile(mcprofiles):
     if not auth:
         print("Kein Minecraft Profil gefunden. Bitte den Minecraft Launcher starten und einloggen!")
         exit(1)
-    j_mcprofiles['profiles']['Brautec'+brautecversion]={'name':'Brautec'+brautecversion, 'gameDir':modpackpath, 'javaArgs':'-XX:InitialHeapSize=512M -XX:MaxHeapSize=2G -XX:MaxPermSize=256M -XX:+AggressiveOpts -XX:+UseFastAccessorMethods','lastVersionId':mcversion+'-Forge'+forgeversion,'playerUUID':auth[0]}
+    if os.name != 'nt' or os.path.exists(os.getenv('programfiles(x86)')):
+        j_mcprofiles['profiles']['Brautec'+brautecversion]={'name':'Brautec'+brautecversion, 'gameDir':modpackpath, 'javaArgs':'-XX:InitialHeapSize=512M -XX:MaxHeapSize=2G -XX:MaxPermSize=256M -XX:+AggressiveOpts -XX:+UseFastAccessorMethods','lastVersionId':mcversion+'-Forge'+forgeversion,'playerUUID':auth[0]}
+    else:
+        j_mcprofiles['profiles']['Brautec'+brautecversion]={'name':'Brautec'+brautecversion, 'gameDir':modpackpath, 'javaArgs':'-XX:InitialHeapSize=512M -XX:MaxHeapSize=1024M -XX:MaxPermSize=256M','lastVersionId':mcversion+'-Forge'+forgeversion,'playerUUID':auth[0]}
     fo = open(mcprofiles, 'w+')
     fo.write(json.dumps(j_mcprofiles))
     fo.close()
