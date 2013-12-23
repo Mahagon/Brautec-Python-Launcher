@@ -126,7 +126,10 @@ if modpackjson:
                         print(os.path.basename(installedmod).lower()+' wird geloescht')
                         os.remove(installedmod)
             if os.path.exists(modspath+'/'+mcversion):
-                shutil.rmtree(modspath+'/'+mcversion)
+                if os.name == 'nt':
+                    os.system('CMD /C RMDIR /S /Q "'+modspath+'/'+mcversion+'"')
+                else:
+                    shutil.rmtree(modspath+'/'+mcversion)
        else:
             os.makedirs(modspath)
        for mod in j_modpackjson['mods']:
