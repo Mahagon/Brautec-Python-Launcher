@@ -6,3 +6,4 @@ function pause(){
 python3 "./Brautec starten.py"
 
 pause 'Press [Enter] key to continue...'
+ 

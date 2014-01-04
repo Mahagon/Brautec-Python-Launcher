@@ -26,11 +26,11 @@ if os.name=='nt':
 elif os.name=='mac':
     minecraftlauncherdownload='https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar'
     minecraftclient=os.path.abspath(module_path()+'/minecraft_launcher.jar')
-    mcpath=os.path.abspath(expanduser('~')+'/.minecraft')
+    mcpath=os.path.abspath(expanduser('~')+'/Library/Application Support/minecraft')
 else:
     minecraftlauncherdownload='https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar'
     minecraftclient=os.path.abspath(module_path()+'/minecraft_launcher.jar')
-    mcpath=os.path.abspath(expanduser('~')+'/Library/Application Support/minecraft')
+    mcpath=os.path.abspath(expanduser('~')+'/.minecraft')
 mcprofiles=os.path.abspath(mcpath+'/launcher_profiles.json')
 modpackpath=os.path.abspath(mcpath+'/modpacks/brautec3')
 modspath=os.path.abspath(modpackpath+'/mods')
