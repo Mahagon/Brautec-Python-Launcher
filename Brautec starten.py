@@ -101,6 +101,7 @@ if not os.path.exists(forgeversionspath):
     if os.name == 'nt':
         os.system('"'+forgeinstallerfile+'"')
     else:
+        os.system('chmod -x "'+forgeinstallerfile+'"')
         os.system('java -jar "'+forgeinstallerfile+'"')
     os.remove(forgeinstallerfile)
     if not os.path.exists(forgeversionspath):
@@ -172,4 +173,5 @@ if not os.path.isfile(minecraftclient):
 if os.name == 'nt':
     os.system('"'+minecraftclient+'"')
 else:
+   os.system('chmod -x "'+minecraftclient+'"')
    os.system('java -jar "'+minecraftclient+'"')
